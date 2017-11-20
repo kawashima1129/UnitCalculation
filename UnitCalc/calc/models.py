@@ -11,8 +11,13 @@ class Unit(models.Model):
 
 class Register_Unit(models.Model):
     Register_obj = models.ForeignKey(Unit)
-    
-    def __str__(self):
-        return self.Register_obj
+
+
+class User(models.Model):
+    compulsory_unit = models.IntegerField()
+    select_unit = models.IntegerField()
+    free_unit = models.IntegerField()
+    core_unit = models.IntegerField()
+
 
 

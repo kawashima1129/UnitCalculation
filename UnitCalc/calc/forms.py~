@@ -1,0 +1,18 @@
+from django import form
+
+EMPTY_CHOICES = (
+    ('', '-'*10),
+)
+
+GENDER_CHOICES = (
+    ('man', '男'),
+    ('woman', '女')
+)
+
+class TimeTableForm(forms.Form):
+    unit = forms.ModelChoiceField(
+        label='性別',
+        widget=forms.Select,
+        choices=EMPTY_CHOICES + GENDER_CHOICES,
+        required=False,
+    )
