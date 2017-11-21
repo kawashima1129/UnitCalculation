@@ -20,3 +20,5 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^calc/', include('calc.urls', namespace='calc'))
 ]
+
+
