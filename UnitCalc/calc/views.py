@@ -5,15 +5,18 @@ from .models import Unit
 # Create your views here.
 
 def index(request):
-    print(request.method)
+    
     if request.method == 'POST':
         form = TimeTableForm(data = request.POST)
+        request_dict = dict(request.POST)
         if form.is_valid():
-            form.calc()
-            return redirect('calc:results')
+            summary = form.calc(request_dict['unit'])
+            return render(request, 'calc/results.html', summary)
     else:
         form = TimeTableForm()
     return render(request, 'calc/index.html', {'form':form})
 
 def results(request):
-    return render(request, 'calc/results.html')
+    #return render(request, 'calc/results.html')
+    pass
+
