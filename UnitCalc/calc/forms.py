@@ -1,5 +1,6 @@
 from django import forms
 from .models import Unit
+import re
 
 
 class TimeTableForm(forms.Form):
@@ -11,8 +12,14 @@ class TimeTableForm(forms.Form):
             'required': "You didn't select a choice.",
             'invalid_choice': "invalid choice.",
         },
-        initial=Unit.objects.get(subject_name='なし')
+        initial = Unit.objects.get(subject_name='なし'),
+                                  #renderer.inner_html = '{ unit_value }'
     )
+    """
+    def __init__(self, *args, **kwargs):
+        self.fields['unit'].widget.renderer.inner_html = '{ unit_value }'
+        print('aa')
+"""
 
     def calc(self,unit_list):
         unit_list = list(set(unit_list))#重複データを消去
@@ -44,5 +51,11 @@ class TimeTableForm(forms.Form):
 
         summary ={'履修単位':unit_dict, '不足単位':shortage_dict, '総計':result_dict}
         return summary
+
+    def shaping(self, preform):
+        form_str = str(preform)
+        matchOB = re.search("<select.+select>", form_str, flags=re.DOTALL)
+        return matchOB.group()
+
         
         
