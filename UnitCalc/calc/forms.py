@@ -12,14 +12,9 @@ class TimeTableForm(forms.Form):
             'required': "You didn't select a choice.",
             'invalid_choice': "invalid choice.",
         },
-        initial = Unit.objects.get(subject_name='なし'),
-                                  #renderer.inner_html = '{ unit_value }'
+        initial = Unit.objects.get(subject_name='なし')
     )
-    """
-    def __init__(self, *args, **kwargs):
-        self.fields['unit'].widget.renderer.inner_html = '{ unit_value }'
-        print('aa')
-"""
+
 
     def calc(self,unit_list):
         unit_list = list(set(unit_list))#重複データを消去

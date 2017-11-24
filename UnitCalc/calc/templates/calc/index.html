@@ -1,86 +1,174 @@
+{% load staticfiles %}
+
 <html>
+  <head>
+    <title>システムサイバネティクス専攻　単位計算</title>
+    <link rel="stylesheet" href="{% static 'css/calcstyle.css' %}">
+  </head>
   <body>
-    <form action="" method="POST">
-      {% csrf_token %}
+		<p id="tabcontrol">
+   		<a href="#tabpage1">前期</a>
+   		<a href="#tabpage2">後期</a>
+    </p>
 
-      <TABLE BORDER="10">
-	<TR> 
-	  <TH>時間/曜日</TH> 
-	  <TH>月曜日</TH> 
-	  <TH>火曜日</TH>　
-	  <TH>水曜日</TH>　
-	  <TH>木曜日</TH>　
-	  <TH>金曜日</TH>
-	</TR>
+    <div id="tabbody">
+      <div id="tabpage1">
+					<form action="" method="POST">
+						{% csrf_token %}
+						<!- 普段の時間割表 ->
+					<TABLE BORDER="10">
+					<TR> 
+						<TH>時間/曜日</TH> 
+						<TH>月曜日</TH> 
+						<TH>火曜日</TH>　
+						<TH>水曜日</TH>　
+						<TH>木曜日</TH>　
+						<TH>金曜日</TH>
+					</TR>
+					
+					<TR> 
+						<TD>1コマ</TD>
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD>  
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+					</TR>
+				
+					<TR> 
+						<TD>2コマ</TD>
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD>  
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+					</TR>
+				
+					<TR> 
+						<TD>3コマ</TD>
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD>  
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+					</TR>
+				
+					<TR> 
+						<TD>4コマ</TD>
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD>  
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+					</TR>
+				
+					<TR> 
+						<TD>5コマ</TD>
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD>  
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+						<TD>{{ form  }}<br>{{ form }}</TD> 
+					</TR>
+					</TABLE>
+
+					<!- 集中講義の時間割 ->
+      		<br><br>
+      		<TABLE BORDER="10">
+					<TR>
+	  				<TH>集中講義</TH>
+						<TH>{{ form  }}<br>
+								{{ form  }}<br>
+								{{ form  }}<br>
+								{{ form  }}<br>
+								{{ form  }}
+						</TH>
+					</TR>
+					</TABLE>
+			</div>
+			
+      <div id="tabpage2">
+					<form action="" method="POST">
+							{% csrf_token %}
+							<!- 普段の時間割表 ->
+						<TABLE BORDER="10">
+						<TR> 
+							<TH>時間/曜日</TH> 
+							<TH>月曜日</TH> 
+							<TH>火曜日</TH>　
+							<TH>水曜日</TH>　
+							<TH>木曜日</TH>　
+							<TH>金曜日</TH>
+						</TR>
+						
+						<TR> 
+							<TD>1コマ</TD>
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD>  
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+						</TR>
+					
+						<TR> 
+							<TD>2コマ</TD>
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD>  
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+						</TR>
+					
+						<TR> 
+							<TD>3コマ</TD>
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD>  
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+						</TR>
+					
+						<TR> 
+							<TD>4コマ</TD>
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD>  
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+						</TR>
+					
+						<TR> 
+							<TD>5コマ</TD>
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD>  
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+							<TD>{{ form  }}<br>{{ form }}</TD> 
+						</TR>
+						</TABLE>
 	
-	<TR> 
-	  <TD>1コマ</TD>
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD>  
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	</TR>
-
-	<TR> 
-	  <TD>2コマ</TD>
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD>  
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	</TR>
-
-	<TR> 
-	  <TD>3コマ</TD>
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD>  
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	</TR>
-
-	<TR> 
-	  <TD>4コマ</TD>
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD>  
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	</TR>
-
-	<TR> 
-	  <TD>5コマ</TD>
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD>  
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	  <TD>{{ form  }}<br>{{ form }}</TD> 
-	</TR>
-
-	
-	<CAPTION>前期の時間割</CAPTION> 
-      </TABLE>
-
-      <P>
-      <TABLE BORDER="10">
-	<TR>
-	  <TH>集中講義</TH>
-	  <TH>{{ form  }}<br>
-	      {{ form  }}<br>
-	      {{ form  }}<br>
-	      {{ form  }}<br>
-	      {{ form  }}
-	  </TH>
-	 </TR>
-      </TABLE>
+						<!- 集中講義の時間割 ->
+						<br><br>
+						<TABLE BORDER="10">
+						<TR>
+							<TH>集中講義</TH>
+							<TH>{{ form  }}<br>
+									{{ form  }}<br>
+									{{ form  }}<br>
+									{{ form  }}<br>
+									{{ form  }}
+							</TH>
+						</TR>
+						</TABLE>
+			</div>
 
 
-
-
-      <br>
-      <br>
-      <input type="submit" style="width:5%;padding:50px;font-size:30px;" value="登録"/>
+    </div>
+		
+		
+		<input type="submit" style="width:5%;padding:50px;font-size:30px;" value="登録"/>
     </form>
+    
+  <script type="text/javascript" src="{% static 'javascript/calc.js' %}"></script>
   </body>
 </html>
