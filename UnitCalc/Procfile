@@ -1,1 +1,1 @@
-web: gunicorn UnitCalculation.wsgi
+web: gunicorn UnitCalc.wsgi
