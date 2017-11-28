@@ -19,5 +19,5 @@ def index(request):
 
 def results(request, pk):
     return render(request, 'calc/results.html')
-#pass
+
 
