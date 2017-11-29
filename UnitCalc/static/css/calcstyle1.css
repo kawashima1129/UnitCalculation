@@ -23,10 +23,35 @@
 #tabbody div {
     border: 1px solid black; /* 枠線：黒色の実線を1pxの太さで引く */
     margin-top: -1px;        /* 上側にあるタブと1pxだけ重ねるために「-1px」を指定 */
-    padding: 1em;            /* 内側の余白量 */
+    padding: 0.5em;            /* 内側の余白量 */
     background-color: white; /* 背景色：白色 */
     position: relative;      /* z-indexを調整するために必要 */
     z-index: 0;              /* 重なり順序を「最も背面」にするため */
 }
 
+button.button1 {
+    /* 文字サイズを1.4emに指定 */
+    font-size: 1.4em;
+    /* 文字の太さをboldに指定 */
+    font-weight: bold;
+    /* 縦方向に10px、
+    * 横方向に30pxの余白を指定 */
+    padding: 10px 30px;
+    /* 背景色を濃い青色に指定 */
+    background-color: #248;
+
+    /* 文字色を白色に指定 */
+    color: #fff;
+
+    /* ボーダーをなくす */
+    border-style: none;
+
+}
+
+button.button1:hover {
+        background-color: #24d;
+        /* 文字色を白色に指定 */
+        color: #fff;
+    }
+    
 

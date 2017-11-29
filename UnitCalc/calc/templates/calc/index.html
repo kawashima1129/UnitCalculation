@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>システムサイバネティクス専攻　単位計算</title>
-    <link rel="stylesheet" href="{% static 'css/calcstyle.css' %}">
+	<link rel="stylesheet" href="{% static 'css/calcstyle1.css' %}">
   </head>
   <body>
 		<p id="tabcontrol">
@@ -15,7 +15,7 @@
       <div id="tabpage1">
 					<form action="" method="POST">
 						{% csrf_token %}
-						<!- 普段の時間割表 ->
+						<!-- 普段の時間割表 -->
 					<TABLE BORDER="10">
 					<TR> 
 						<TH>時間/曜日</TH> 
@@ -72,7 +72,7 @@
 					</TR>
 					</TABLE>
 
-					<!- 集中講義の時間割 ->
+					<!-- 集中講義の時間割 -->
       		<br><br>
       		<TABLE BORDER="10">
 					<TR>
@@ -89,7 +89,7 @@
 			
       <div id="tabpage2">
 							{% csrf_token %}
-							<!- 普段の時間割表 ->
+							<!-- 普段の時間割表 -->
 						<TABLE BORDER="10">
 						<TR> 
 							<TH>時間/曜日</TH> 
@@ -164,9 +164,10 @@
 
     </div>
 		
-	
-		  <input type="submit" style="width:5%;padding:50px;font-size:30px;" value="登録"/>
-		
+		<button class="button1" type="submit">登録</button>	
+		<!--
+		<input type="submit" style="width:5%;padding:50px;font-size:30px;" value="登録"/>
+-->
     </form>
     
   <script type="text/javascript" src="{% static 'javascript/calc.js' %}"></script>
