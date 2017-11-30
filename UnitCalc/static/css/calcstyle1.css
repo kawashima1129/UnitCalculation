@@ -18,9 +18,7 @@
 #tabcontrol a:hover {
     text-decoration: underline;       /* 文字に下線を引く */
 }
-#tabcontrol a:active {
-    color: rgb(175, 74, 74);
-}
+
 
 /* ▼タブの中身 */
 #tabbody div {
