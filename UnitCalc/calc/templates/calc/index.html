@@ -7,9 +7,9 @@
   </head>
   <body>
 		<p id="tabcontrol">
-   		<a href="#tabpage1">前期</a>
-   		<a href="#tabpage2">後期</a>
-    </p>
+   			<a href="#tabpage1">前期</a>
+   			<a href="#tabpage2">後期</a>
+    	</p>
 
     <div id="tabbody">
       <div id="tabpage1">
@@ -160,14 +160,12 @@
 						</TR>
 						</TABLE>
 			</div>
+	</div>	
+	
 
-
-    </div>
-		
-		<button class="button1" type="submit">登録</button>	
-		<!--
-		<input type="submit" style="width:5%;padding:50px;font-size:30px;" value="登録"/>
--->
+		<button class="button1" type="submit" onclick="return confirm('前期、後期ともに登録しましたか。')"> 
+			登録
+		</button>	
     </form>
     
   <script type="text/javascript" src="{% static 'javascript/calc.js' %}"></script>
