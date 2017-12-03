@@ -1,11 +1,27 @@
+{% load staticfiles %}
 <html>
   <head>
     <title>単位計算結果</title>
+    <link rel="stylesheet" href="{% static 'css/resultstyle.css' %}">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   </head>
   <body>
-    <p>総計：{{ 総計 }}</p>
-    <p>履修単位：{{ 履修単位 }}</p>
-    <p>不足している単位の詳細：{{ 不足単位 }}</p>
+    <div class="page-header">
+      <h1>Unit Calculate System</h1>
+    </div>
+
+    <h2>あなたの履修単位の合計</h2>
+    {{ 総計.履修単位 }}
+    <h2>あなたの履修単位の詳細</h2>
+    {{ 履修単位 }}
+    <h2>不足している単位の詳細</h2>
+    {{ 不足単位 }}
+
+
   </body>
+  <br><br>
   <a href="{% url 'calc:index'  %}">戻る</a><br>
-</html>
+
+  </html>
+
