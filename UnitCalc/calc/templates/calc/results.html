@@ -2,7 +2,8 @@
 <html>
   <head>
     <title>単位計算結果</title>
-    <link rel="stylesheet" href="{% static 'css/resultstyle.css' %}">
+    <script type="text/javascript" src="{% static 'javascript/result.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/resultstyle1.css' %}">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
   </head>
@@ -11,15 +12,27 @@
       <h1>Unit Calculate System</h1>
     </div>
 
-    <h2>あなたの履修単位の合計</h2>
+    <h2>
+      {% if 総計.合否 %}
+        履修単位が卒業要件を満たしています。
+      {% else %}
+        履修単位が卒業要件を満たしていません。
+      {% endif %}
+    </h2>
+
+    
+
+    <br>
+    <h2>詳細</h2>
+    <h3>あなたの履修単位の合計</h3>
      <div class="fig">
       {{ 総計.履修単位 }} [単位]
      </div>
     
     
-    <h2>あなたの履修単位の詳細</h2>
+    <h3>あなたの履修単位の詳細</h3>
     {{ 履修単位 }}
-    <h2>不足している単位の詳細</h2>
+    <h3>不足している単位の詳細</h3>
     {{ 不足単位 }}
 
 

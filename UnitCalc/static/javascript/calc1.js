@@ -44,5 +44,19 @@
         // ---------------------------
         // ▼D：最初は先頭のタブを選択しておく
         // ---------------------------
-        tabs[0].onclick();
+		tabs[0].onclick();
+
+	function check(){
+		/*
+		if(result){
+			document.write('aa');
+		}
+		else{
+			document.write('aa');
+		}*/
+		document.write('aa');
+		alert("id_2クリック！関数名は書いても書かなくてもOK！");
+	}
+		
+	
 
