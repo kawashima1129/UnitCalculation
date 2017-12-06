@@ -1,6 +1,11 @@
 .page-header {
-    background-color: #f89809;
     margin-top: 0;
+    padding-top: 0px;
+    padding-top: 0px;
+    margin-top:0px;
+
+    
+    background-color: #f89809;
     padding: 20px 20px 20px 40px;
     color: #fff;
     
@@ -11,15 +16,39 @@ h3 {
     border-bottom: 1px solid #ccc;
   }
 
-body {
-    padding-left: 15px;
+
+
+.content{
+    padding-left: 30px;
 }
+
 
 a {
     font-size: 1.4em;
 }
 
 .fig{
-    font-size: 2em;
+    font-size: 1.5em;
 }
+
+#true {
+    color: rgb(228, 64, 15);
+    font-weight:bold;
+}
+
+#false {
+    color: rgb(15, 70, 189);
+    font-weight:bold;
+}
+
+#detail{
+    font-weight: bold;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
 
