@@ -1,52 +1,33 @@
+{% extends 'calc/base.html' %}
 {% load staticfiles %}
-<html>
-  <head>
-    <title>単位計算結果</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
 
-    <script type="text/javascript" src="{% static 'javascript/result.js' %}"></script>
-    <link rel="stylesheet" href="{% static 'css/resultstyle1.css' %}">
-   </head>
-
-
-  <body>
-    <div class="page-header">
-      <h1><a href="/">Unit Calculate System</a></h1>
-    </div>
-  
-    <div class="content">
-    <h2>
-      {% if 総計.合否 %}
-        <p id="true">卒業要件を満たしています。</p>
-      {% else %}
-        <p id="false">卒業要件を満たしていません。</p>
-      {% endif %}
-    </h2>
 
     
+{% block content %}
+<div class="content">
+  <h2>
+    {% if 総計.合否 %}
+      <p id="true">卒業要件を満たしています。</p>
+    {% else %}
+      <p id="false">卒業要件を満たしていません。</p>
+    {% endif %}
+  </h2>
 
-    <br>
-    <h2 id="detail">詳細</h2>
-    <h3>あなたの履修単位の合計</h3>
-     <p>
-       <span class='fig'>{{ 総計.履修単位 }}</span> [単位]
+  <br>
+  <h2 id="detail">詳細</h2>
+  <h3>あなたの履修単位の合計</h3>
+    <p>
+      <span class='fig'>{{ 総計.履修単位 }}</span> [単位]
     </p>
-      
     
-    
-    <h3>あなたの履修単位の詳細</h3>
-    {{ 履修単位 }}
-    <h3>不足している単位の詳細</h3>
-    {{ 不足単位 }}
-   
-
-  
+  <h3>あなたの履修単位の詳細</h3>
+  {{ 履修単位 }}
+  <h3>不足している単位の詳細</h3>
+  {{ 不足単位 }}
 
   <br><br>
   <a href="{% url 'calc:index'  %}">戻る</a><br>
-  </div>
-  </body>
+</div>
+{% endblock content %}
 
-</html>
 

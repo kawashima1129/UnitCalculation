@@ -1,96 +1,93 @@
+{% extends 'calc/base.html' %}
 {% load staticfiles %}
 
-<html>
-  <head>
-    <title>システムサイバネティクス専攻　単位計算</title>
-	<link rel="stylesheet" href="{% static 'css/calcstyle1.css' %}">
-  </head>
-  <body>
-		<p id="tabcontrol">
-   			<a href="#tabpage1">前期</a>
-   			<a href="#tabpage2">後期</a>
-    	</p>
+{% block content %}
+<div class="content">
+	<p id="tabcontrol">
+		<a href="#tabpage1">前期</a>
+		<a href="#tabpage2">後期</a>
+	</p>
 
     <div id="tabbody">
-      <div id="tabpage1">
-					<form action="" method="POST">
-						{% csrf_token %}
-						<!-- 普段の時間割表 -->
-					<TABLE BORDER="10">
-					<TR> 
-						<TH>時間/曜日</TH> 
-						<TH>月曜日</TH> 
-						<TH>火曜日</TH>　
-						<TH>水曜日</TH>　
-						<TH>木曜日</TH>　
-						<TH>金曜日</TH>
-					</TR>
-					
-					<TR> 
-						<TD>1コマ</TD>
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD>  
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-					</TR>
-				
-					<TR> 
-						<TD>2コマ</TD>
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD>  
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-					</TR>
-				
-					<TR> 
-						<TD>3コマ</TD>
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD>  
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-					</TR>
-				
-					<TR> 
-						<TD>4コマ</TD>
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD>  
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-					</TR>
-				
-					<TR> 
-						<TD>5コマ</TD>
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD>  
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-						<TD>{{ form  }}<br>{{ form }}</TD> 
-					</TR>
-					</TABLE>
+      	<div id="tabpage1">
+		<form action="" method="POST">
+			{% csrf_token %}
+			<!-- 前期の時間割表 -->
+			<TABLE BORDER="5">
+			<TR> 
+				<TH>時間/曜日</TH> 
+				<TH>月曜日</TH> 
+				<TH>火曜日</TH>　
+				<TH>水曜日</TH>　
+				<TH>木曜日</TH>　
+				<TH>金曜日</TH>
+			</TR>
+			
+			<TR> 
+				<TD>1コマ</TD>
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD>  
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+			</TR>
 
-					<!-- 集中講義の時間割 -->
-      		<br><br>
-      		<TABLE BORDER="10">
+			<TR> 
+				<TD>2コマ</TD>
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD>  
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+			</TR>
+
+			<TR> 
+				<TD>3コマ</TD>
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD>  
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+			</TR>
+
+			<TR> 
+				<TD>4コマ</TD>
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD>  
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+			</TR>
+
+			<TR> 
+				<TD>5コマ</TD>
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD>  
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+				<TD>{{ form  }}<br>{{ form }}</TD> 
+			</TR>
+			</TABLE>
+
+						<!-- 集中講義の時間割 -->
+				<br><br>
+				<TABLE BORDER="5">
 					<TR>
-	  				<TH>集中講義</TH>
-						<TH>{{ form  }}<br>
+						<TH>集中講義</TH>
+							<TH>{{ form  }}<br>
 								{{ form  }}<br>
 								{{ form  }}<br>
 								{{ form  }}<br>
 								{{ form  }}
-						</TH>
+							</TH>
 					</TR>
-					</TABLE>
-			</div>
-			
+				</TABLE>
+	  	</div>
+				
       <div id="tabpage2">
 							{% csrf_token %}
-							<!-- 普段の時間割表 -->
-						<TABLE BORDER="10">
+							<!-- 後期の時間割表 -->
+						<TABLE BORDER="5">
 						<TR> 
 							<TH>時間/曜日</TH> 
 							<TH>月曜日</TH> 
@@ -148,7 +145,7 @@
 	
 						<!- 集中講義の時間割 ->
 						<br><br>
-						<TABLE BORDER="10">
+						<TABLE BORDER="5">
 						<TR>
 							<TH>集中講義</TH>
 							<TH>{{ form  }}<br>
@@ -163,11 +160,10 @@
 	</div>	
 	
 		<br>
-		<button class="button1" type="submit" onclick="return confirm('前期、後期ともに登録しましたか。')"> 
-			登録
-		</button>	
+		<button class="button1" type="submit" onclick="return confirm('前期、後期ともに登録しましたか。')"> 登録</button>	
     </form>
     
   <script type="text/javascript" src="{% static 'javascript/calc1.js' %}"></script>
-  </body>
-</html>
+
+</div>
+{% endblock content %}
