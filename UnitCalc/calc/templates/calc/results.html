@@ -1,32 +1,66 @@
 {% extends 'calc/base.html' %}
 {% load staticfiles %}
 
-
     
 {% block content %}
 <div class="content">
+
   <h2>
     {% if 総計.合否 %}
-      <p id="true">卒業要件を満たしています。</p>
+      <p id="true">あなたは卒業要件を満たしています。</p>
     {% else %}
-      <p id="false">卒業要件を満たしていません。</p>
+      <p id="false">あなたは卒業要件を満たしていません。</p>
     {% endif %}
   </h2>
 
-  <br>
+  
   <h2 id="detail">詳細</h2>
+
   <h3>あなたの履修単位の合計</h3>
-    <p>
-      <span class='fig'>{{ 総計.履修単位 }}</span> [単位]
-    </p>
+    <p><span class='fig'>{{ 総計.履修単位 }}</span> [単位]</p>
     
   <h3>あなたの履修単位の詳細</h3>
-  {{ 履修単位 }}
+    <TABLE BORDER="1">
+			<TR> 
+				<TH>コア</TH> 
+				<TH>必修</TH> 
+				<TH>選択必修</TH>　
+				<TH>共通科目</TH>　
+				<TH>自由選択</TH>　
+			</TR>
+			
+			<TR> 
+				<TD>{{ 履修単位.コア }}</TD>
+				<TD>{{ 履修単位.必修 }}</TD> 
+				<TD>{{ 履修単位.選択必修 }}</TD> 
+				<TD>{{ 履修単位.共通科目 }}</TD>  
+				<TD>{{ 履修単位.自由選択 }}</TD> 
+      </TR>
+    </TABLE>
+  
+
   <h3>不足している単位の詳細</h3>
-  {{ 不足単位 }}
+    <TABLE BORDER="1">
+			<TR> 
+				<TH>コア</TH> 
+				<TH>必修</TH> 
+				<TH>選択必修</TH>　
+				<TH>共通科目</TH>　
+				<TH>自由選択</TH>　
+			</TR>
+			
+			<TR> 
+				<TD>{{ 不足単位.コア }}</TD>
+				<TD>{{ 不足単位.必修 }}</TD> 
+				<TD>{{ 不足単位.選択必修 }}</TD> 
+				<TD>{{ 不足単位.共通科目 }}</TD>  
+				<TD>{{ 不足単位.自由選択 }}</TD> 
+      </TR>
+    </TABLE>
 
   <br><br>
   <a href="{% url 'calc:index'  %}">戻る</a><br>
+
 </div>
 {% endblock content %}
 

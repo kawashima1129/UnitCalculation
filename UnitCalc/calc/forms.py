@@ -24,7 +24,7 @@ class TimeTableForm(forms.Form):
         
         for pk in unit_list:
            obj = Unit.objects.get(pk=pk)
-           if(obj.subject_category == '必修'):
+           if(obj.subject_category == 'コア'):
                unit_dict['コア'] = unit_dict['コア'] + obj.number_unit
            elif(obj.subject_category == '必修'):
                unit_dict['必修'] = unit_dict['必修'] + obj.number_unit
@@ -46,9 +46,12 @@ class TimeTableForm(forms.Form):
                 shortage_dict[k1] = requirement_dict[k1] - unit_dict[k1]
                 result = False
             sum = sum + v1
-        
-        result_dict = {'合否':result ,'必要単位合計':34, '履修単位':sum}
+        if(sum >= 34):
+            result = True
 
+        result = True if sum >= 34 else False
+
+        result_dict = {'合否':result ,'必要単位合計':34, '履修単位':sum}
         summary ={'履修単位':unit_dict, '不足単位':shortage_dict, '総計':result_dict}
         return summary
 

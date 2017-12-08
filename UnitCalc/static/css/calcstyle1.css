@@ -54,5 +54,14 @@ button.button1:hover {
         /* 文字色を白色に指定 */
         color: #fff;
     }
+
+table th{
+    padding: 10px;
+    background: #fff5e5;
+}
+
+table td{
+    padding: 10px;
+}
     
 
