@@ -41,7 +41,6 @@ class TimeTableForm(forms.Form):
                 shortage_dict[k1] = 0
                 if(k1 != '自由選択'):
                     result = True
-
             else:
                 shortage_dict[k1] = requirement_dict[k1] - unit_dict[k1]
                 result = False
@@ -50,8 +49,9 @@ class TimeTableForm(forms.Form):
             result = True
 
         result = True if sum >= 34 else False
-
-        result_dict = {'合否':result ,'必要単位合計':34, '履修単位':sum}
+        
+        requiredunit = 34
+        result_dict = {'合否':result , '履修単位合計':sum, '不足単位合計':requiredunit-sum}
         summary ={'履修単位':unit_dict, '不足単位':shortage_dict, '総計':result_dict}
         return summary
 
