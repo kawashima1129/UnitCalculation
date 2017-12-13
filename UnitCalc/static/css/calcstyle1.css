@@ -56,12 +56,15 @@ button.button1:hover {
     }
 
 table th{
+    text-align:center;
     padding: 10px;
     background: #fff5e5;
+    
 }
 
 table td{
     padding: 10px;
 }
+
     
 
