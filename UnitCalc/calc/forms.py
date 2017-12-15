@@ -54,7 +54,6 @@ class TimeTableForm(forms.Form):
                 recommended['選択必修'] = obj.subject_name
             elif(obj.subject_category == '共通科目'):
                 recommended['共通科目'] = obj.subject_name
-        print(recommended)
         
 
         sum = 0
@@ -68,7 +67,7 @@ class TimeTableForm(forms.Form):
         requiredunit = 34
         check = [k for k, v in shortage_dict.items() if v > 0] 
         result = True if sum >= requiredunit and not check else False
-
+        
         
         result_dict = {'合否':result , '履修単位合計':sum, '不足単位合計':requiredunit-sum}
         summary ={'履修単位':unit_dict, '不足単位':shortage_dict, '総計':result_dict, 'おすすめ':recommended}
