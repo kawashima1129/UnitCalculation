@@ -33,6 +33,8 @@ class TimeTableForm(forms.Form):
                 unit_dict['選択必修'] = unit_dict['選択必修'] + obj.number_unit
             elif(obj.subject_category == '共通科目'):
                 unit_dict['共通科目'] = unit_dict['共通科目'] + obj.number_unit
+            elif(obj.subject_category == '自由選択'):
+                unit_dict['自由選択'] = unit_dict['自由選択'] + obj.number_unit
             
             completeunit.append(obj.pk)
             
@@ -40,30 +42,38 @@ class TimeTableForm(forms.Form):
         allunit = [obj.pk for obj in objs]
         lackunit = set(allunit) - set(completeunit)
         lackunit_list = list(lackunit)
-        print(completeunit)
-        print(lackunit_list)
+
+        recommended={}
+        for pk in lackunit_list:
+            obj = Unit.objects.get(pk=pk)
+            if(obj.subject_category == 'コア'):
+                recommended['コア'] = obj.subject_name
+            elif(obj.subject_category == '必修'):
+                recommended['必修'] = obj.subject_name
+            elif(obj.subject_category == '選択必修'):
+                recommended['選択必修'] = obj.subject_name
+            elif(obj.subject_category == '共通科目'):
+                recommended['共通科目'] = obj.subject_name
+        print(recommended)
         
 
         sum = 0
-        result = False
         for k1, v1 in unit_dict.items():
             if requirement_dict[k1] - unit_dict[k1] <= 0:
                 shortage_dict[k1] = 0
-                if(k1 != '自由選択'):
-                    result = True
             else:
                 shortage_dict[k1] = requirement_dict[k1] - unit_dict[k1]
-                result = False
             sum = sum + v1
-        if(sum >= 34):
-            result = True
-
-        result = True if sum >= 34 else False
         
         requiredunit = 34
+        check = [k for k, v in shortage_dict.items() if v > 0] 
+        result = True if sum >= requiredunit and not check else False
+
+        
         result_dict = {'合否':result , '履修単位合計':sum, '不足単位合計':requiredunit-sum}
-        summary ={'履修単位':unit_dict, '不足単位':shortage_dict, '総計':result_dict}
+        summary ={'履修単位':unit_dict, '不足単位':shortage_dict, '総計':result_dict, 'おすすめ':recommended}
         return summary
+
 
     def shaping(self, preform):
         form_str = str(preform)
