@@ -21,7 +21,8 @@ class TimeTableForm(forms.Form):
         unit_dict = {'コア':0, '必修':0, '選択必修':0, '共通科目':0, '自由選択':0 }
         requirement_dict = {'コア':8, '必修':8, '選択必修':10, '共通科目':4, '自由選択':0}
         shortage_dict = {'コア':0, '必修':0, '選択必修':0, '共通科目':0, '自由選択':0 }
-        
+        recommended = {'コア':[], '必修':[], '選択必修':[], '共通科目':[]}
+
         completeunit = []
         for pk in unit_list:
             obj = Unit.objects.get(pk=pk)
@@ -37,24 +38,25 @@ class TimeTableForm(forms.Form):
                 unit_dict['自由選択'] = unit_dict['自由選択'] + obj.number_unit
             
             completeunit.append(obj.pk)
-            
+        
+        #履修してない単位の主キーを取得
         objs = Unit.objects.all()
         allunit = [obj.pk for obj in objs]
         lackunit = set(allunit) - set(completeunit)
         lackunit_list = list(lackunit)
 
-        recommended={}
+    
         for pk in lackunit_list:
             obj = Unit.objects.get(pk=pk)
             if(obj.subject_category == 'コア'):
-                recommended['コア'] = obj.subject_name
+                recommended['コア'].append(obj.subject_name)
             elif(obj.subject_category == '必修'):
-                recommended['必修'] = obj.subject_name
+                recommended['必修'].append(obj.subject_name)
             elif(obj.subject_category == '選択必修'):
-                recommended['選択必修'] = obj.subject_name
+                recommended['選択必修'].append(obj.subject_name)
             elif(obj.subject_category == '共通科目'):
-                recommended['共通科目'] = obj.subject_name
-        
+                recommended['共通科目'].append(obj.subject_name)
+        print(recommended)
 
         sum = 0
         for k1, v1 in unit_dict.items():
