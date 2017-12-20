@@ -56,7 +56,6 @@ class TimeTableForm(forms.Form):
                 recommended['選択必修'].append(obj.subject_name)
             elif(obj.subject_category == '共通科目'):
                 recommended['共通科目'].append(obj.subject_name)
-        print(recommended)
 
         sum = 0
         for k1, v1 in unit_dict.items():
