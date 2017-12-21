@@ -66,5 +66,13 @@ table td{
     padding: 10px;
 }
 
+.inquire{
+    float: right;
+    font-size: 12pt;
+    position: absolute;
+    top: 80px;
+    right: 10px;
+}
+
     
 

@@ -21,3 +21,7 @@ def results(request, pk):
     return render(request, 'calc/results.html')
 
 
+def inquire(request):
+    return render(request, 'calc/inquire.html')
+
+
