@@ -22,8 +22,7 @@ def inquire(request):
     if request.method == 'POST':
         form = ContactForm(data = request.POST)
         if form.is_valid():
-            name = form.cleaned_data['name']
-            message = form.cleaned_data['message']
+            form.send_email()
             return render(request, 'calc/inquire.html', 
                           {'form':form, 'true':'Your message is submitted. Thank you!'})
     else:

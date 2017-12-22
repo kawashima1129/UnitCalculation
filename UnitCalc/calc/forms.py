@@ -2,6 +2,8 @@ from django import forms
 from django.forms import TextInput, Textarea
 from .models import Unit
 import re
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 class TimeTableForm(forms.Form):
@@ -86,4 +88,14 @@ class ContactForm(forms.Form):
     message = forms.CharField(label='お問い合わせ内容', 
                               widget=forms.Textarea(attrs={'cols':4, 'rows': 10, 'class': 'form-control reset-border-radius',}), 
                               required=True)
+
+    # メール送信処理
+    def send_email(self):
+        # send email using the self.cleaned_data dictionary
+        subject = self.cleaned_data['name']
+        message = self.cleaned_data['message']
+        from_email = settings.EMAIL_HOST_USER
+        to = [settings.EMAIL_HOST_USER]
+
+        send_mail(subject, message, from_email, to)
         
