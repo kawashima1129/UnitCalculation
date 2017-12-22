@@ -3,5 +3,14 @@
 
 
 {% block content %}
-<h2>お問い合わせフォーム</h2>
+<div class="content">
+    <h2>お問い合わせフォーム</h2>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button2" type="submit" >送信</button>	
+    </form>
+    {{ true }}
+    
+</div>
 {% endblock content %}

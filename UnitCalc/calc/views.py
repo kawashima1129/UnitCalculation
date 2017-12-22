@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from .forms import TimeTableForm
+from .forms import TimeTableForm, ContactForm
 from .models import Unit
 from django.utils.html import mark_safe
 
@@ -17,11 +17,17 @@ def index(request):
         form = form.shaping(form)
         return render(request, 'calc/index.html', {'form':mark_safe(form)})
 
-def results(request, pk):
-    return render(request, 'calc/results.html')
-
 
 def inquire(request):
-    return render(request, 'calc/inquire.html')
+    if request.method == 'POST':
+        form = ContactForm(data = request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            message = form.cleaned_data['message']
+            return render(request, 'calc/inquire.html', 
+                          {'form':form, 'true':'Your message is submitted. Thank you!'})
+    else:
+        form = ContactForm()
+    return render(request, 'calc/inquire.html', {'form':form})
 
 

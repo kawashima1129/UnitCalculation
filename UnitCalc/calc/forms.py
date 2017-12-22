@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import TextInput, Textarea
 from .models import Unit
 import re
 
@@ -80,5 +81,9 @@ class TimeTableForm(forms.Form):
         matchOB = re.search("<select.+select>", form_str, flags=re.DOTALL)
         return matchOB.group()
 
-        
+class ContactForm(forms.Form):
+    name = forms.CharField(label='お名前', required=True, widget=forms.TextInput(attrs={'class': 'form-control reset-border-radius',}))
+    message = forms.CharField(label='お問い合わせ内容', 
+                              widget=forms.Textarea(attrs={'cols':4, 'rows': 10, 'class': 'form-control reset-border-radius',}), 
+                              required=True)
         
