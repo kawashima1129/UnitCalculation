@@ -84,9 +84,10 @@ class TimeTableForm(forms.Form):
         return matchOB.group()
 
 class ContactForm(forms.Form):
-    name = forms.CharField(label='お名前', required=True, widget=forms.TextInput(attrs={'class': 'form-control reset-border-radius',}))
-    message = forms.CharField(label='お問い合わせ内容', 
-                              widget=forms.Textarea(attrs={'cols':4, 'rows': 10, 'class': 'form-control reset-border-radius',}), 
+    name = forms.CharField(label='お名前', required=True, 
+                           widget=forms.TextInput(attrs={'cols':20,'rows':30,'class': 'form-control reset-border-radius',}))
+    message = forms.CharField(label='ご意見', 
+                              widget=forms.Textarea(attrs={'cols':20, 'rows': 10, 'class': 'form-control reset-border-radius',}), 
                               required=True)
 
     # メール送信処理
@@ -95,7 +96,7 @@ class ContactForm(forms.Form):
         subject = self.cleaned_data['name']
         message = self.cleaned_data['message']
         from_email = settings.EMAIL_HOST_USER
-        to = [settings.EMAIL_HOST_USER]
+        to = ['xxx']
 
         send_mail(subject, message, from_email, to)
         

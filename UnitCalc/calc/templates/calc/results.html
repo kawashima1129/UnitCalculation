@@ -56,12 +56,20 @@
       </TR>
     </TABLE>
     <h4>履修のすすめ</h4>
-    コア：{% if not おすすめ.コア %} 基準を満たしています。{%endif%} {% for x in おすすめ.コア%} {{x}} {% endfor %}<br>
-    必修：{% if not おすすめ.必修 %} 基準を満たしています。{%endif%}{% for x in おすすめ.必修%} {{x}} {% endfor %}<br>
-    選択必修：{% if not おすすめ.選択必修 %} 基準を満たしています。{%endif%}{% for x in おすすめ.選択必修%} {{x}} {% endfor %}<br>
-    共通科目：{% if not おすすめ.共通科目 %} 基準を満たしています。{%endif%}{% for x in おすすめ.共通科目%} {{x}} {% endfor %}<br>
+        コア：{% if 不足単位.コア == 0 %} 基準を満たしています。 
+             {% else %} {% for x in おすすめ.コア%}  {{x}},  {% endfor %} 
+             {%endif%}<br>
+        必修：{% if 不足単位.必修 == 0 %} 基準を満たしています。 
+             {% else %} {% for x in おすすめ.必修%}  {{x}},  {% endfor %} 
+             {%endif%}<br>
+        選択必修：{% if 不足単位.選択必修 == 0 %} 基準を満たしています。 
+                {% else %} {% for x in おすすめ.選択必修%}  {{x}},  {% endfor %} 
+                {%endif%}<br>
+        共通科目：{% if 不足単位.共通科目 == 0 %} 基準を満たしています。 
+             {% else %} {% for x in おすすめ.共通科目%}  {{x}},  {% endfor %} 
+             {%endif%}<br>
+           
   {% endif %}
-
   <br><br>
   <a href="{% url 'calc:index'  %}">戻る</a><br>
 
