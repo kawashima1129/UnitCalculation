@@ -86,17 +86,22 @@ class TimeTableForm(forms.Form):
 class ContactForm(forms.Form):
     name = forms.CharField(label='お名前', required=True, 
                            widget=forms.TextInput(attrs={'cols':20,'rows':30,'class': 'form-control reset-border-radius',}))
+    address = forms.CharField(label='メールアドレス', 
+                              widget=forms.TextInput(attrs={'cols':20, 'rows': 10, 'class': 'form-control reset-border-radius',}), 
+                              required=True)
     message = forms.CharField(label='ご意見', 
                               widget=forms.Textarea(attrs={'cols':20, 'rows': 10, 'class': 'form-control reset-border-radius',}), 
                               required=True)
+
 
     # メール送信処理
     def send_email(self):
         # send email using the self.cleaned_data dictionary
         subject = self.cleaned_data['name']
-        message = self.cleaned_data['message']
+        message = ("相手のメールアドレス：" + self.cleaned_data['address']
+                  + "       内容：" + self.cleaned_data['message']) #なぜか改行できない
         from_email = settings.EMAIL_HOST_USER
-        to = ['xxx']
+        to = ['k_ktak1129@yahoo.co.jp']
 
         send_mail(subject, message, from_email, to)
         
