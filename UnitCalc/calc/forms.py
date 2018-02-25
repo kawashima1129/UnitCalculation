@@ -97,9 +97,8 @@ class ContactForm(forms.Form):
     # メール送信処理
     def send_email(self):
         # send email using the self.cleaned_data dictionary
-        subject = self.cleaned_data['name']
-        message = ("相手のメールアドレス：" + self.cleaned_data['address']
-                  + "       内容：" + self.cleaned_data['message']) #なぜか改行できない
+        subject = self.cleaned_data['name'] + "さんからのご意見"
+        message = "相手のメールアドレス：" + self.cleaned_data['address'] + '\n内容：' + self.cleaned_data['message'] 
         from_email = settings.EMAIL_HOST_USER
         to = ['k_ktak1129@yahoo.co.jp']
 
